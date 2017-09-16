@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	float a, b, c;
+	float x1, x2;
+	float delta;
+	
+	a = b = c = x1 = x2 = delta = 0;
+	
+	char op = 'n';
+	
+	printf("Programa para calcular Solucoes de uma funcao do 2 grau.\n");
+    printf("Funcao do tipo: ax^2 + bx + c\n");
+    
+    printf("Digite o valor de a:");
+	scanf("%f", &a);
+	
+	while(a == 0){
+		if(op == 's'){
+			printf("Digite o valor de a:");
+			scanf("%f", &a);
+		}
+		if(a == 0){ // Alteração - para que caso o usuário insira valor de a = 0, a solicitação se repete.
+			printf("Valor incorreto!!!\n");
+			printf("Deseja digitar outro valor? (s/n)\n");
+			scanf("%c", &op);
+			if(op == 'n'){ // Caso o usupario não passe o valor de a, o programa é finalizado.
+				return 0;
+			}
+		}
+	}
+	printf("Digite o valor de b:");
+	scanf("%f", &b);
+	
+	printf("Digite o valor de c:");
+	scanf("%f", &c);
+	
+	delta = (b*b)-(4*a*c);
+	
+	x1 = (-b - sqrt(delta))/(2*a);
+	x2 = (-b + sqrt(delta))/(2*a);
+	
+	printf("Valor de x1: %.2f \n", x1);
+	
+	printf("Valor de x2: %.2f", x2);
+	
+	return 0;
+	
+}
